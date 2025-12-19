@@ -93,7 +93,12 @@ app.use(fileUpload());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-dbCon();
+// dbCon();
+// file ke top par hi call
+dbCon()
+  .then(() => console.log("DB ready"))
+  .catch((err) => console.error("DB error", err));
+
 
 app.use("/api", router);
 app.use("/api", routeTwo);
