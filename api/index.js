@@ -69,59 +69,22 @@
 // export default app;
 
 
-// const express = require("express");
-// const serverless = require("serverless-http");
-// const cors = require("cors");
-// const fileUpload = require("express-fileupload");
-
-// // const dbCon = require("./db/db.connection");
-// // const router = require("./Router/route");
-// // const routeTwo = require("./Router/routeTwo");
-// // const routeJob = require("./Router/routeJob");
-
-// // const dbCon = require("../db/db.connection");  // ../db, na ke ./db
-// const dbCon = require("../db/db.connection");
-// const router = require("../Router/route");
-// const routeTwo = require("../Router/routeTwo");
-// const routeJob = require("../Router/routeJob");
-
-
-// const app = express();
-
-// app.use(cors({ credentials: true }));
-// app.use(fileUpload());
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-
-// // dbCon();
-// // file ke top par hi call
-// dbCon()
-//   .then(() => console.log("DB ready"))
-//   .catch((err) => console.error("DB error", err));
-
-
-// app.use("/api", router);
-// app.use("/api", routeTwo);
-// app.use("/api", routeJob);
-
-// app.get("/api", (req, res) => {
-//   res.json({ status: "Backend running 🚀" });
-// });
-
-// // ✅ THIS IS REQUIRED
-// module.exports = serverless(app);
-
-
-
 const express = require("express");
 const serverless = require("serverless-http");
 const cors = require("cors");
 const fileUpload = require("express-fileupload");
 
+// const dbCon = require("./db/db.connection");
+// const router = require("./Router/route");
+// const routeTwo = require("./Router/routeTwo");
+// const routeJob = require("./Router/routeJob");
+
+// const dbCon = require("../db/db.connection");  // ../db, na ke ./db
 const dbCon = require("../db/db.connection");
 const router = require("../Router/route");
 const routeTwo = require("../Router/routeTwo");
 const routeJob = require("../Router/routeJob");
+
 
 const app = express();
 
@@ -130,23 +93,20 @@ app.use(fileUpload());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Favicon request ignore karne ke liye
-app.get("/favicon.ico", (req, res) => res.status(204).end());
-
-// DB connection
+// dbCon();
+// file ke top par hi call
 dbCon()
   .then(() => console.log("DB ready"))
   .catch((err) => console.error("DB error", err));
 
-// API routes
+
 app.use("/api", router);
 app.use("/api", routeTwo);
 app.use("/api", routeJob);
 
-// Simple test route
 app.get("/api", (req, res) => {
   res.json({ status: "Backend running 🚀" });
 });
 
+// ✅ THIS IS REQUIRED
 module.exports = serverless(app);
-
