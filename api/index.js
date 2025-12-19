@@ -74,10 +74,16 @@ const serverless = require("serverless-http");
 const cors = require("cors");
 const fileUpload = require("express-fileupload");
 
-const dbCon = require("./db/db.connection");
-const router = require("./Router/route");
-const routeTwo = require("./Router/routeTwo");
-const routeJob = require("./Router/routeJob");
+// const dbCon = require("./db/db.connection");
+// const router = require("./Router/route");
+// const routeTwo = require("./Router/routeTwo");
+// const routeJob = require("./Router/routeJob");
+
+const dbCon = require("../db/db.connection");  // ../db, na ke ./db
+const router = require("../Router/route");
+const routeTwo = require("../Router/routeTwo");
+const routeJob = require("../Router/routeJob");
+
 
 const app = express();
 

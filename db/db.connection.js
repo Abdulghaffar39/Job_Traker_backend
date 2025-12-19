@@ -30,21 +30,20 @@
 
 // module.exports = dbCon;
 
-
-
-import mongoose from "mongoose";
+// db/db.connection.js
+const mongoose = require("mongoose");
 
 let isConnected = false;
 
 const dbCon = async () => {
   if (isConnected) return;
 
-  if (!process.env.MONGO_URI) {
-    throw new Error("MONGO_URI is not defined");
+  if (!process.env.DB) {           // 👈 yahan tumhari actual env key use karo
+    throw new Error("DB is not defined");
   }
 
   try {
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(process.env.DB);
     isConnected = true;
     console.log("MongoDB connected successfully");
   } catch (error) {
@@ -53,4 +52,4 @@ const dbCon = async () => {
   }
 };
 
-export default dbCon;
+module.exports = dbCon;
