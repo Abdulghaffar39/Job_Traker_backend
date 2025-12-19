@@ -79,7 +79,8 @@ const fileUpload = require("express-fileupload");
 // const routeTwo = require("./Router/routeTwo");
 // const routeJob = require("./Router/routeJob");
 
-const dbCon = require("../db/db.connection");  // ../db, na ke ./db
+// const dbCon = require("../db/db.connection");  // ../db, na ke ./db
+const dbCon = require("../db/db.connection");
 const router = require("../Router/route");
 const routeTwo = require("../Router/routeTwo");
 const routeJob = require("../Router/routeJob");

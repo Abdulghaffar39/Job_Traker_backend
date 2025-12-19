@@ -31,6 +31,32 @@
 // module.exports = dbCon;
 
 // db/db.connection.js
+// const mongoose = require("mongoose");
+
+// let isConnected = false;
+
+// const dbCon = async () => {
+//   if (isConnected) return;
+
+//   if (!process.env.DB) {           // 👈 yahan tumhari actual env key use karo
+//     throw new Error("DB is not defined");
+//   }
+
+//   try {
+//     await mongoose.connect(process.env.DB);
+//     isConnected = true;
+//     console.log("MongoDB connected successfully");
+//   } catch (error) {
+//     console.error("MongoDB connection failed:", error.message);
+//     throw error;
+//   }
+// };
+
+// module.exports = dbCon;
+
+
+
+// db/db.connection.js
 const mongoose = require("mongoose");
 
 let isConnected = false;
@@ -38,7 +64,7 @@ let isConnected = false;
 const dbCon = async () => {
   if (isConnected) return;
 
-  if (!process.env.DB) {           // 👈 yahan tumhari actual env key use karo
+  if (!process.env.DB) {
     throw new Error("DB is not defined");
   }
 
