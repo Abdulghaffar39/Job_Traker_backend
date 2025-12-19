@@ -40,8 +40,12 @@ import dbCon from "../db/db.connection.js";
 import router from "../Router/route.js";
 import routeTwo from "../Router/routeTwo.js";
 import routeJob from "../Router/routeJob.js";
+import dbCon from "../db/db.connection.js";
 
-dotenv.config();
+await dbCon();
+
+
+// dotenv.config();
 
 const app = express();
 
